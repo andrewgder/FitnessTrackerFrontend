@@ -6,6 +6,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Navbar from "./components/Navbar";
+import CreateRoutines from "./components/CreateRoutine";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -29,6 +30,15 @@ function App() {
       <div className="login">
         <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn}></Login>
       </div>
+      <div className="login">
+        <CreateRoutines
+          loggedIn={loggedIn}
+          setLoggedIn={setLoggedIn}
+          Routines={routines}
+          setRoutines={setRoutines}
+        ></CreateRoutines>
+      </div>
+
       <div className="activities">
         <Activities
           activities={activities}

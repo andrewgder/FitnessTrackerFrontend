@@ -9,7 +9,7 @@ const AllRoutines = (props) => {
       setRoutines(Allroutines);
     };
     fetchData();
-  }, []);
+  }, [routines]);
 
   //displays routines and also itereates through all the attached activities
   return (

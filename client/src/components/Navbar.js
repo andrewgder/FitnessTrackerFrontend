@@ -27,8 +27,8 @@ const Navbar = (props) => {
         alert("You Successfuly Logged Out");
         console.log("you successfully logged out");
         localStorage.clear();
-        props.setIsLoggedOut(true);
-        alert("You Successfuly Logged Out");
+        props.setLoggedIn(true);
+
         // navigate("/posts");
       },
     },

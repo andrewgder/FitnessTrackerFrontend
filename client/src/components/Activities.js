@@ -9,8 +9,8 @@ const AllActivities = (props) => {
       setActivities(AllActivities);
     };
     fetchData();
-  }, []);
-
+  }, [activities]);
+  //displays all activities
   return (
     <>
       <h1>All Activities</h1>

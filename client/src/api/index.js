@@ -5,10 +5,6 @@ export async function getActivities() {
   try {
     const response = await fetch(`${BASE_URL}/activities`, {
       method: "GET",
-      // headers: {
-      //   "Content-Type": "application/json",
-      //   Authorization: `Bearer ${localStorage.getItem("token")}`,
-      // },
     });
     const data = await response.json();
     return data;
@@ -26,6 +22,41 @@ export async function getRoutines() {
       //   "Content-Type": "application/json",
       //   Authorization: `Bearer ${localStorage.getItem("token")}`,
       // },
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+//fetchs username for my routines page
+export async function getUsername() {
+  try {
+    const response = await fetch(`${BASE_URL}/users/me`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    const data = await response.json();
+    console.log(data.username);
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+//gets my routines
+export async function getMyRoutines(username) {
+  try {
+    const response = await fetch(`${BASE_URL}/users/${username}/routines`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
     });
     const data = await response.json();
     return data;

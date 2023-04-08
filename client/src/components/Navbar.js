@@ -38,6 +38,12 @@ const Navbar = (props) => {
       text: "Register",
       shouldDisplay: !displayVal,
     },
+    {
+      key: "myRoutine",
+      route: "/myroutines",
+      text: "My Routines",
+      shouldDisplay: displayVal,
+    },
   ];
   return (
     <div className="NavBarBody">

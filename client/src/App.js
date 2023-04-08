@@ -7,6 +7,8 @@ import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Navbar from "./components/Navbar";
 import CreateRoutines from "./components/CreateRoutine";
+import CreateActivity from "./components/CreateActivity";
+import GetMyRoutines from "./components/MyRoutines";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -22,6 +24,10 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<h1>Nav Bar</h1>}></Route>{" "}
+        <Route
+          path="/myroutines"
+          element={<GetMyRoutines></GetMyRoutines>}
+        ></Route>
       </Routes>
 
       <div className="register">
@@ -30,7 +36,7 @@ function App() {
       <div className="login">
         <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn}></Login>
       </div>
-      <div className="login">
+      <div className="createRoutines">
         <CreateRoutines
           loggedIn={loggedIn}
           setLoggedIn={setLoggedIn}
@@ -38,7 +44,14 @@ function App() {
           setRoutines={setRoutines}
         ></CreateRoutines>
       </div>
-
+      <div className="createActivity">
+        <CreateActivity
+          loggedIn={loggedIn}
+          setLoggedIn={setLoggedIn}
+          activities={activities}
+          setActivities={setActivities}
+        ></CreateActivity>
+      </div>
       <div className="activities">
         <Activities
           activities={activities}

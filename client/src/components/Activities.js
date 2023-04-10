@@ -16,8 +16,11 @@ const AllActivities = (props) => {
       <h1>All Activities</h1>
       {activities.map((activities) => (
         <div className="activties" key={activities.id}>
-          <h2>Name: {activities.name} </h2>
-          <p>Description: {activities.description}</p>
+          <h4>Name:</h4> {activities.name}
+          <p>
+            <h4>Description:</h4> {activities.description}
+          </p>
+          <hr></hr>
         </div>
       ))}
     </>

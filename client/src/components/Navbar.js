@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Logout from "./Logout";
 
 const Navbar = (props) => {
   const [displayVal, setDisplayVal] = useState(localStorage.getItem("token"));
+
   useEffect(() => {
-    // console.log("token navbar: ", localStorage.getItem("token"));
     setDisplayVal(localStorage.getItem("token"));
-  }, [props.loggedIn]);
-  //   const navigate = useNavigate();
+  }, [props.loginStatus, props.loggedIn]);
+  const navigate = useNavigate();
   console.log("display val:", displayVal);
 
   const links = [
@@ -18,20 +19,7 @@ const Navbar = (props) => {
       text: "Login",
       shouldDisplay: !displayVal,
     },
-    {
-      key: "logout",
-      // route: "/login",
-      text: "Log Out",
-      shouldDisplay: displayVal,
-      onClick: () => {
-        alert("You Successfuly Logged Out");
-        console.log("you successfully logged out");
-        localStorage.clear();
-        props.setLoggedIn(true);
 
-        // navigate("/posts");
-      },
-    },
     {
       key: "register",
       route: "/register",
@@ -44,12 +32,39 @@ const Navbar = (props) => {
       text: "My Routines",
       shouldDisplay: displayVal,
     },
+    {
+      key: "routines",
+      route: "/routines",
+      text: "Routines",
+      shouldDisplay: true,
+    },
+    {
+      key: "activities",
+      route: "/activities",
+      text: "Activities",
+      shouldDisplay: true,
+    },
+    {
+      key: "logout",
+      text: "Log Out",
+      shouldDisplay: displayVal,
+      route: "/login",
+      onClick: () => {
+        alert("You Successfuly Logged Out");
+        console.log("you successfully logged out");
+        localStorage.clear();
+
+        props.setLoginStatus(false);
+      },
+    },
   ];
   return (
     <div className="NavBarBody">
       <Link to={"/"} className="NavBarTitle">
         Home
-      </Link>{" "}
+      </Link>
+      {<br></br>}
+
       <div className="NavBarMenuItems">
         {links.map((link) => {
           const { key, route, text, shouldDisplay, onClick = () => {} } = link;

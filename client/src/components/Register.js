@@ -7,12 +7,12 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  //   const navigateLogin = useNavigate();
+  const navigateLogin = useNavigate();
 
   //form to create the account
   return (
     <>
-      <h2> Create account form</h2>
+      <h2> Create an Account</h2>
       <form
         id="createAccount"
         onSubmit={async (event) => {
@@ -54,7 +54,7 @@ const Register = () => {
               alert(message.message);
             }
             console.log("navigating");
-            // navigateLogin("/login");
+            navigateLogin("/login");
           }
         }}
       >

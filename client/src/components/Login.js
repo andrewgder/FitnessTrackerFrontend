@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { login } from "../api";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loginStatus, setLoginStatus] = useState(false);
-  //   const navigate = useNavigate();
+  // const [loginStatus, setLoginStatus] = useState(false);
+  const navigate = useNavigate();
+  const { loginStatus, setLoginStatus } = props;
 
   useEffect(() => {
     if (!loginStatus) {
       // perform any other logout related actions here
+    } else {
+      setLoginStatus(false);
     }
   }, [loginStatus]);
 
@@ -32,7 +35,7 @@ const Login = (props) => {
                   setLoginStatus(true);
                   localStorage.setItem("username", username);
                   props.setLoggedIn(username);
-                  //   navigate("/posts");
+                  navigate("/myroutines");
                 }
               } catch (err) {
                 console.error(err);

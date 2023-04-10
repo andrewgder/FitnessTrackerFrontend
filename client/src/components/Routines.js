@@ -17,10 +17,10 @@ const AllRoutines = (props) => {
       <h1>All Routines</h1>
       {routines.map((routine) => (
         <div className="routines" key={routine.id}>
-          <h2>Routine Name: {routine.name} </h2>
+          <h4>Routine Name: {routine.name} </h4>
           <p>Goal: {routine.goal}</p>
           <p>Creator Name: {routine.creatorName}</p>
-          <h2>Activities:</h2>
+          <h4>Added Activities:</h4>
           <ul>
             {routine.activities.map((activity) => (
               <li key={activity.id}>
@@ -39,6 +39,7 @@ const AllRoutines = (props) => {
               </li>
             ))}
           </ul>
+          <hr></hr>
         </div>
       ))}
     </>

@@ -50,7 +50,7 @@ const CreateRoutines = (props) => {
                 required
               />
             </label>
-
+            <br></br>
             <label>
               Goal:
               <input
@@ -61,6 +61,7 @@ const CreateRoutines = (props) => {
                 required
               />
             </label>
+            <br></br>
             <label>
               Public Routine:
               <select
@@ -72,6 +73,7 @@ const CreateRoutines = (props) => {
                 <option value="false"> No</option>
               </select>
             </label>
+            <br></br>
             <button className="createButton" name="createRoutine">
               Submit Routine
             </button>

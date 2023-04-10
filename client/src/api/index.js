@@ -117,3 +117,42 @@ export async function login(username, password) {
     })
     .catch(console.error);
 }
+
+//delete routines
+export async function deleteRoutine(id) {
+  console.log("deleted routine id", id);
+  await fetch(`${BASE_URL}/routines/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      alert("You deleted the routine");
+      console.log(result);
+    })
+    .catch(console.error);
+}
+
+//update routines
+export async function updateRoutine(id, name, goal) {
+  fetch(`${BASE_URL}/routines/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+    body: JSON.stringify({
+      name: name,
+      goal: goal,
+    }),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log("updated routine", result);
+      alert("Updates saved!");
+    })
+    .catch(console.error);
+}
